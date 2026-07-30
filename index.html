@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tabber — Split the bill by saying who had what</title>
+<meta name="description" content="Photograph the receipt, describe who had what in plain English, and Tabber splits the bill. Tax and tip prorated fairly. Runs entirely on your iPhone — no account, no cloud, nothing uploaded.">
+<meta name="theme-color" content="#0C0C0D">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tabber">
+<meta property="og:title" content="Tabber — Split the bill by saying who had what">
+<meta property="og:description" content="Photograph the receipt, describe who had what in plain English, and Tabber splits the bill. Runs entirely on your iPhone — nothing is uploaded.">
+<meta property="og:image" content="assets/app-icon.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="assets/app-icon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/app-icon.png">
+<link rel="stylesheet" href="css/styles.css">
+<script>document.documentElement.className += ' js';</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">T</span>
+      Tabber
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#privacy">Privacy</a>
+      <a href="support.html">Support</a>
+      <a class="btn btn-primary is-pending nav-cta" data-appstore="Download on the App Store" aria-disabled="true" href="#get">
+        <span data-appstore-label>Coming soon</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="micro micro-accent">On-device · iPhone</span>
+          <h1>Split the bill by saying who had what.</h1>
+          <p class="lede">
+            Photograph the receipt, describe the table the way you'd say it out loud,
+            and Tabber works out what everyone owes — tax and tip included. No
+            checkboxes. No tapping each person against each item.
+          </p>
+
+          <div class="btn-row">
+            <a class="btn btn-primary is-pending" data-appstore="Download on the App Store" aria-disabled="true" href="#get">
+              <span data-appstore-label>Coming to the App Store</span>
+            </a>
+            <a class="btn btn-secondary" href="#how">See how it works</a>
+          </div>
+
+          <p class="hero-note">Requires iPhone 15&nbsp;Pro or newer running iOS&nbsp;26. Manual entry works on any iPhone.</p>
+        </div>
+
+        <div class="hero-phone">
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="phone-status" aria-hidden="true"><span class="phone-notch"></span></div>
+
+              <div class="phone-head">
+                <span class="link">Back</span>
+                <span class="micro">Step 3 of 3</span>
+                <span class="link" style="opacity:0">Back</span>
+              </div>
+
+              <div class="phone-body">
+                <div class="paper-top" style="padding:14px 16px 12px">
+                  <div class="receipt-row is-sub" style="padding-top:0">
+                    <span class="name micro" style="letter-spacing:.12em">Lucia's · 5 items</span>
+                  </div>
+                  <div class="receipt-row">
+                    <span class="name">Grilled Salmon</span><span class="money">$32.00</span>
+                  </div>
+                  <div class="receipt-row">
+                    <span class="name">Calamari</span><span class="money">$16.00</span>
+                  </div>
+                  <div class="receipt-row">
+                    <span class="name">Ribeye</span><span class="money">$46.00</span>
+                  </div>
+                  <hr class="dashed" style="margin:8px 0">
+                  <div class="receipt-row is-total" style="padding-bottom:0">
+                    <span class="name">Total</span><span class="money">$154.20</span>
+                  </div>
+                </div>
+                <div class="tear" aria-hidden="true"></div>
+
+                <div style="margin-top:16px;padding:12px 14px;background:var(--fill);border:1px solid var(--hairline-strong);border-radius:14px">
+                  <span class="micro" style="font-size:.625rem;margin-bottom:6px">Tell me who had what</span>
+                  <p style="font-size:.8125rem;color:var(--text-item);line-height:1.5">
+                    Sarah had the salmon, John and I split the calamari<span class="caret" aria-hidden="true"></span>
+                  </p>
+                </div>
+
+                <div class="people" style="margin-top:12px">
+                  <div class="person">
+                    <div class="person-head">
+                      <span class="avatar" style="background:var(--p2)" aria-hidden="true">S</span>
+                      <span class="who">Sarah</span>
+                      <span class="money">$56.54</span>
+                    </div>
+                    <ul class="person-items">
+                      <li><span>Grilled Salmon</span><span class="money">$32.00</span></li>
+                    </ul>
+                  </div>
+                  <div class="person">
+                    <div class="person-head">
+                      <span class="avatar" style="background:var(--p3)" aria-hidden="true">J</span>
+                      <span class="who">John</span>
+                      <span class="money">$28.27</span>
+                    </div>
+                    <ul class="person-items">
+                      <li><span>Calamari <span class="shared">· shared</span></span><span class="money">$8.00</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= THE SENTENCE ========================= -->
+  <section class="section-hairline">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="micro">The whole interaction</span>
+        <h2>One sentence. Everyone's share.</h2>
+        <p>
+          Type it or say it. Names in the sentence become people, items are matched
+          against the receipt, and anything split is divided automatically.
+        </p>
+      </div>
+
+      <div class="transform reveal">
+        <div class="quote-card">
+          <span class="micro">You say</span>
+          <blockquote>
+            “Sarah had the salmon, John and I split the calamari, Mike's getting his own tab.”
+          </blockquote>
+        </div>
+
+        <div class="transform-arrow" aria-hidden="true">↓</div>
+
+        <div class="people">
+          <div class="person">
+            <div class="person-head">
+              <span class="avatar" style="background:var(--p2)" aria-hidden="true">S</span>
+              <span class="who">Sarah</span>
+              <span class="money">$56.54</span>
+            </div>
+            <ul class="person-items">
+              <li><span>Grilled Salmon</span><span class="money">$32.00</span></li>
+              <li><span>Caesar Salad</span><span class="money">$12.00</span></li>
+              <li><span>Tax &amp; tip</span><span class="money">$12.54</span></li>
+            </ul>
+          </div>
+
+          <div class="person">
+            <div class="person-head">
+              <span class="avatar" style="background:var(--p3)" aria-hidden="true">J</span>
+              <span class="who">John</span>
+              <span class="money">$28.27</span>
+            </div>
+            <ul class="person-items">
+              <li><span>Calamari <span class="shared">· split 2 ways</span></span><span class="money">$8.00</span></li>
+              <li><span>Old Fashioned</span><span class="money">$14.00</span></li>
+              <li><span>Tax &amp; tip</span><span class="money">$6.27</span></li>
+            </ul>
+          </div>
+
+          <div class="person">
+            <div class="person-head">
+              <span class="avatar" style="background:var(--p4)" aria-hidden="true">M</span>
+              <span class="who">Mike</span>
+              <span class="money">$59.11</span>
+            </div>
+            <ul class="person-items">
+              <li><span>Ribeye</span><span class="money">$46.00</span></li>
+              <li><span>Tax &amp; tip</span><span class="money">$13.11</span></li>
+            </ul>
+          </div>
+
+          <div class="person">
+            <div class="person-head">
+              <span class="avatar" style="background:var(--accent)" aria-hidden="true">K</span>
+              <span class="who">You</span>
+              <span class="money">$10.28</span>
+            </div>
+            <ul class="person-items">
+              <li><span>Calamari <span class="shared">· split 2 ways</span></span><span class="money">$8.00</span></li>
+              <li><span>Tax &amp; tip</span><span class="money">$2.28</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout mt-lg reveal">
+        <span class="micro">Nothing to memorise</span>
+        <p>
+          “I” and “me” mean you. A name Tabber has seen before is matched to that
+          person; a new name is simply remembered once the tab is saved. Anything
+          the sentence didn't cover stays visible as unassigned, and a tap fixes it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= HOW IT WORKS ========================= -->
+  <section id="how" class="section-hairline">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="micro">How it works</span>
+        <h2>Receipt in, per-person totals out.</h2>
+        <p>Six steps, and four of them are just checking Tabber got it right.</p>
+      </div>
+
+      <ol class="steps reveal">
+        <li>
+          <div>
+            <h3>Capture</h3>
+            <p>
+              Photograph the receipt, or pick one from Photos. Tabber reads the
+              original capture rather than a compressed copy, so the small
+              high-contrast print survives.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Parse</h3>
+            <p>
+              The photo is straightened and cropped, then read <em>as a table</em> —
+              so each item stays attached to its own price instead of being paired
+              by position.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Check</h3>
+            <p>
+              The printed subtotal and total are read off the page and used to audit
+              the parse: the items have to add up. Where they don't, Tabber says so
+              instead of guessing.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Review</h3>
+            <p>
+              Every line, and the restaurant name, is editable. Anything the audit
+              couldn't reconcile is flagged for a glance-check before you go on.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Assign</h3>
+            <p>
+              Type or dictate who had what. Items land under each person as they're
+              recognised. Anyone the sentence didn't name can be seated by hand.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Share</h3>
+            <p>
+              Per-person totals with itemised breakdowns, sent through the standard
+              share sheet. Finished tabs are saved to your home screen.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========================= PRIVACY ============================ -->
+  <section id="privacy" class="privacy-band">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="micro micro-accent">Privacy</span>
+        <h2>Nothing leaves your iPhone.</h2>
+        <p>
+          This isn't a policy position, it's how the app is built. Tabber has no
+          backend to send anything to. The receipt photo, the text read off it, the
+          names at your table, and the sentence describing who had what are all
+          processed on the device using Apple's on-device models.
+        </p>
+      </div>
+
+      <div class="privacy-claims reveal">
+        <div class="claim">
+          <span class="k">0</span>
+          <span class="v">network calls in the core flow — the app works in airplane mode</span>
+        </div>
+        <div class="claim">
+          <span class="k">0</span>
+          <span class="v">accounts, sign-ins, or passwords. There is nothing to create</span>
+        </div>
+        <div class="claim">
+          <span class="k">0</span>
+          <span class="v">analytics, trackers, ads, or third-party SDKs</span>
+        </div>
+        <div class="claim">
+          <span class="k">0</span>
+          <span class="v">data collected by the developer, as filed in the App Store privacy manifest</span>
+        </div>
+      </div>
+
+      <div class="callout accent mt-lg reveal">
+        <span class="micro">You hold the delete key</span>
+        <p>
+          Receipt photos can be kept always, dropped 30 days after the meal, or never
+          stored at all — in which case the receipt is read and immediately discarded.
+          Settings shows exactly what the photos cost on disk and can delete every one
+          of them while leaving your tabs, itemisations, and remembered people intact.
+          One confirmed tap erases everything.
+        </p>
+      </div>
+
+      <p class="mt-lg reveal"><a href="privacy.html">Read the full privacy policy →</a></p>
+    </div>
+  </section>
+
+  <!-- ========================== THE MATH ========================== -->
+  <section>
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="micro">The math</span>
+        <h2>Fair by construction.</h2>
+        <p>
+          A money app has to be right every time, so none of the arithmetic is left
+          to a language model.
+        </p>
+      </div>
+
+      <div class="grid-3 reveal">
+        <div class="feature">
+          <span class="micro">Prorated, never flat</span>
+          <h3>Tax and tip follow the order</h3>
+          <p>
+            Both are split by each person's share of the subtotal. Someone who had a
+            salad doesn't subsidise the steak — and the person who ordered the steak
+            isn't overcharged either.
+          </p>
+        </div>
+        <div class="feature">
+          <span class="micro">Integer cents</span>
+          <h3>The column always adds up</h3>
+          <p>
+            Every amount is whole cents end to end. Rounding drift lands on the
+            largest payer, so the per-person figures always sum to exactly the total
+            printed on the receipt.
+          </p>
+        </div>
+        <div class="feature">
+          <span class="micro">Deterministic</span>
+          <h3>The model never does math</h3>
+          <p>
+            The AI reads the receipt and works out who had what. Every calculation
+            after that is ordinary, testable code — the part that has to be exact
+            is the part that never guesses.
+          </p>
+        </div>
+        <div class="feature">
+          <span class="micro">Shared items</span>
+          <h3>Split evenly or by portion</h3>
+          <p>
+            An appetiser three ways is one shared line spanning three people, not
+            three duplicates. Uneven splits are supported when someone had rather
+            more of it than the others.
+          </p>
+        </div>
+        <div class="feature">
+          <span class="micro">Audited</span>
+          <h3>Checked against the receipt</h3>
+          <p>
+            Items must reconcile with the printed subtotal, and the subtotal plus tax
+            and tip must reach the printed total. A line that isn't really on the
+            receipt gets caught this way.
+          </p>
+        </div>
+        <div class="feature">
+          <span class="micro">Legible in a dim room</span>
+          <h3>Built for the table</h3>
+          <p>
+            Tabular figures, clear hierarchy, one-handed and fast — this is a utility
+            you reach for mid-dinner, not something to sit and study.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= REQUIREMENTS ========================= -->
+  <section class="section-hairline">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="micro">Requirements</span>
+        <h2>What you need.</h2>
+      </div>
+
+      <div class="grid-3 reveal">
+        <div class="feature">
+          <span class="micro">Full experience</span>
+          <h3>iPhone 15 Pro or newer</h3>
+          <p>
+            Scanning and plain-English assignment use Apple Intelligence, which needs
+            capable hardware and iOS 26.
+          </p>
+        </div>
+        <div class="feature">
+          <span class="micro">Everything else</span>
+          <h3>Any iPhone on iOS 26</h3>
+          <p>
+            On hardware that can't run the on-device models, Tabber falls back to
+            manual entry: name the place, type the items, and the split math works
+            identically.
+          </p>
+        </div>
+        <div class="feature">
+          <span class="micro">Not required</span>
+          <h3>An internet connection</h3>
+          <p>
+            The core flow makes no network calls at all. Tabber works in a basement
+            restaurant with no signal exactly as well as anywhere else.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== CTA ============================== -->
+  <section id="get" class="cta section-hairline">
+    <div class="wrap">
+      <span class="micro micro-accent reveal">Get Tabber</span>
+      <h2 class="reveal" style="margin-top:14px">Stop doing arithmetic at dinner.</h2>
+      <p class="lede reveal">
+        Free, private, and built for the ninety seconds after someone says
+        “so how should we do this?”
+      </p>
+      <div class="btn-row reveal">
+        <a class="btn btn-primary is-pending" data-appstore="Download on the App Store" aria-disabled="true" href="#get">
+          <span data-appstore-label>Coming to the App Store</span>
+        </a>
+      </div>
+      <p class="hero-note reveal">
+        Questions before you install? <a href="support.html">Support</a> ·
+        <a href="privacy.html">Privacy policy</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">T</span>
+        Tabber
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" rel="noopener">Terms of use</a>
+      </nav>
+    </div>
+    <p class="footer-fine">
+      © <span data-year>2026</span> Kyle Thornton. Tabber is not affiliated with, endorsed by, or
+      sponsored by Apple Inc., Venmo, or PayPal. iPhone, App&nbsp;Store, and Apple Intelligence are
+      trademarks of Apple&nbsp;Inc. Set in
+      <a href="https://vercel.com/font" rel="noopener">Geist and Geist Mono</a>, used under the
+      SIL Open Font License.
+    </p>
+  </div>
+</footer>
+
+<script src="js/site.js"></script>
+</body>
+</html>
