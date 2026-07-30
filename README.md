@@ -9,35 +9,35 @@ The palette, type ramp, and receipt-paper motif are lifted from the app's
 
 ## The three URLs App Store Connect asks for
 
-Once Pages is live at `https://kylemthornton.github.io/tabber-site/`, these are the
-values to paste into App Store Connect:
+The site is live at **https://tabberapp.github.io/**. These are the values to paste
+into App Store Connect:
 
 | Field in App Store Connect | URL |
 | --- | --- |
-| **Privacy Policy URL** (App Information) | `https://kylemthornton.github.io/tabber-site/privacy.html` |
-| **Support URL** (Version information) | `https://kylemthornton.github.io/tabber-site/support.html` |
-| **Marketing URL** (Version information, optional) | `https://kylemthornton.github.io/tabber-site/` |
+| **Privacy Policy URL** (App Information) | `https://tabberapp.github.io/privacy.html` |
+| **Support URL** (Version information) | `https://tabberapp.github.io/support.html` |
+| **Marketing URL** (Version information, optional) | `https://tabberapp.github.io/` |
 
 Privacy Policy URL and Support URL are both required for submission. Marketing URL is
 optional but free to fill in.
 
-## Publishing it
+## How it's hosted
+
+The repo is `tabberapp/tabberapp.github.io` — a public repo owned by the free
+`tabberapp` organization, with Pages serving `main` from the root. The repo name
+matching the org name is what produces the bare `tabberapp.github.io/` root rather
+than a `/repo-name/` subpath; **renaming the repo would change the site URL**, which
+would in turn break the links filed with Apple.
+
+Publishing a change is just:
 
 ```bash
 cd ~/Dev/tabber-site
-git init
-git add -A
-git commit -m "Add the Tabber website"
-gh repo create tabber-site --public --source=. --push
+git add -A && git commit -m "..." && git push
 ```
 
-Then in the repo on GitHub: **Settings → Pages → Build and deployment → Source:
-Deploy from a branch**, branch `main`, folder `/ (root)`. The first deploy takes a
-minute or two.
-
-The repo has to be **public** for GitHub Pages on a free plan. That's fine here —
-nothing in this repo is private, and it's separate from the app repo, which stays
-private.
+Pages rebuilds within a minute or so. The repo has to stay **public** for Pages on a
+free plan — nothing here is private, and the app repo is separate and stays private.
 
 ## Going live on the App Store
 
@@ -94,6 +94,8 @@ To change it, edit `MAIL_USER` / `MAIL_HOST` in `js/site.js` **and** the three
 
 ## Custom domain (optional, later)
 
-If you ever point a domain at this: add a `CNAME` file containing the bare domain,
-set the DNS records GitHub lists under Settings → Pages, then update the three URLs in
-App Store Connect to match.
+If you ever point a real domain at this (`tabber.app` or similar): add a `CNAME` file
+containing the bare domain, set the DNS records GitHub lists under Settings → Pages,
+then update the three URLs in App Store Connect to match. A custom domain is the one
+change that would survive moving off GitHub Pages entirely, so it's worth doing before
+the URLs are widely shared rather than after.
