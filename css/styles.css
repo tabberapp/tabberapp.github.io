@@ -1104,6 +1104,12 @@ a.receipt-row .money {
   margin-bottom: 0;
 }
 
+/* On privacy.html the contents block opens the page; on support.html it sits
+   below the contact card and needs room above it. */
+.toc:not(:first-child) {
+  margin-top: 34px;
+}
+
 .toc {
   margin: 0 0 8px;
   padding: 20px 22px;
