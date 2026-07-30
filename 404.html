@@ -8,10 +8,13 @@
 <meta name="theme-color" content="#0C0C0D">
 <meta name="robots" content="noindex">
 <link rel="icon" href="/assets/app-icon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/app-icon.png">
 <link rel="stylesheet" href="/css/styles.css">
-<script>document.documentElement.className += ' js';</script>
+<script>(function(d){d.className+=' js';setTimeout(function(){if(!d.hasAttribute('data-site-ready'))d.className=d.className.replace(/(^|\s)js(\s|$)/,' ')},2500)})(document.documentElement);</script>
 </head>
 <body>
+
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header class="nav">
   <div class="wrap nav-inner">
@@ -36,12 +39,12 @@
       </p>
 
       <div style="max-width:340px;margin:38px auto 0;text-align:left">
-        <div class="paper-top" style="padding:18px 20px 14px">
-          <div class="receipt-row"><span class="name">Home</span><span class="money"><a href="/">→</a></span></div>
+        <div class="paper-top" style="padding:12px 20px 8px">
+          <a class="receipt-row" href="/"><span class="name">Home</span><span class="money" aria-hidden="true">→</span></a>
           <hr class="dashed" style="margin:6px 0">
-          <div class="receipt-row"><span class="name">Support</span><span class="money"><a href="/support.html">→</a></span></div>
+          <a class="receipt-row" href="/support.html"><span class="name">Support</span><span class="money" aria-hidden="true">→</span></a>
           <hr class="dashed" style="margin:6px 0">
-          <div class="receipt-row"><span class="name">Privacy policy</span><span class="money"><a href="/privacy.html">→</a></span></div>
+          <a class="receipt-row" href="/privacy.html"><span class="name">Privacy policy</span><span class="money" aria-hidden="true">→</span></a>
         </div>
         <div class="tear" aria-hidden="true"></div>
       </div>

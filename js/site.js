@@ -28,7 +28,6 @@
       el.setAttribute('href', APP_STORE_URL);
       el.setAttribute('rel', 'noopener');
       el.classList.remove('is-pending');
-      el.removeAttribute('aria-disabled');
 
       var label = el.querySelector('[data-appstore-label]');
       if (label) label.textContent = el.dataset.appstore || 'Download on the App Store';
@@ -103,11 +102,33 @@
     for (var i = 0; i < slots.length; i++) slots[i].textContent = year;
   }
 
+  /* ------------------------------------------------------------------
+     5. Boot
+     ------------------------------------------------------------------
+     The .js class on <html> is what arms `.reveal { opacity: 0 }`, so
+     everything below the hero on the landing page is invisible until
+     something adds .in. If this file never runs — a 404, a content
+     blocker, a parse error — nothing ever would. The inline <head>
+     script therefore disarms itself unless we mark the document ready,
+     and a throw in here disarms it immediately. Failing to a fully
+     visible page is the only acceptable failure mode.
+  */
+  function disarmReveals() {
+    var el = document.documentElement;
+    el.className = el.className.replace(/(^|\s)js(\s|$)/, ' ');
+  }
+
   function init() {
-    wireAppStoreLinks();
-    wireEmail();
-    wireReveals();
-    wireYear();
+    try {
+      wireAppStoreLinks();
+      wireEmail();
+      wireReveals();
+      wireYear();
+      document.documentElement.setAttribute('data-site-ready', '');
+    } catch (e) {
+      disarmReveals();
+      throw e;
+    }
   }
 
   if (document.readyState === 'loading') {

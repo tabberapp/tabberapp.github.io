@@ -7,19 +7,27 @@
 <meta name="description" content="Photograph the receipt, describe who had what in plain English, and Tabber splits the bill. Tax and tip prorated fairly. Runs entirely on your iPhone — no account, no cloud, nothing uploaded.">
 <meta name="theme-color" content="#0C0C0D">
 
+<link rel="canonical" href="https://tabberapp.github.io/">
+
+<!-- og:image must be absolute — scrapers do not resolve it against the page URL. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tabber">
+<meta property="og:url" content="https://tabberapp.github.io/">
 <meta property="og:title" content="Tabber — Split the bill by saying who had what">
 <meta property="og:description" content="Photograph the receipt, describe who had what in plain English, and Tabber splits the bill. Runs entirely on your iPhone — nothing is uploaded.">
-<meta property="og:image" content="assets/app-icon.png">
+<meta property="og:image" content="https://tabberapp.github.io/assets/app-icon.png">
 <meta property="og:image:width" content="1024">
 <meta property="og:image:height" content="1024">
+<meta property="og:image:alt" content="The Tabber app icon">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tabber — Split the bill by saying who had what">
+<meta name="twitter:description" content="Photograph the receipt, describe who had what in plain English, and Tabber splits the bill. Runs entirely on your iPhone — nothing is uploaded.">
+<meta name="twitter:image" content="https://tabberapp.github.io/assets/app-icon.png">
 
 <link rel="icon" href="assets/app-icon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/app-icon.png">
 <link rel="stylesheet" href="css/styles.css">
-<script>document.documentElement.className += ' js';</script>
+<script>(function(d){d.className+=' js';setTimeout(function(){if(!d.hasAttribute('data-site-ready'))d.className=d.className.replace(/(^|\s)js(\s|$)/,' ')},2500)})(document.documentElement);</script>
 </head>
 <body>
 
@@ -35,7 +43,7 @@
       <a href="#how">How it works</a>
       <a href="#privacy">Privacy</a>
       <a href="support.html">Support</a>
-      <a class="btn btn-primary is-pending nav-cta" data-appstore="Download on the App Store" aria-disabled="true" href="#get">
+      <a class="btn btn-primary is-pending nav-cta" data-appstore="Download on the App Store" href="#get">
         <span data-appstore-label>Coming soon</span>
       </a>
     </nav>
@@ -58,7 +66,7 @@
           </p>
 
           <div class="btn-row">
-            <a class="btn btn-primary is-pending" data-appstore="Download on the App Store" aria-disabled="true" href="#get">
+            <a class="btn btn-primary is-pending" data-appstore="Download on the App Store" href="#get">
               <span data-appstore-label>Coming to the App Store</span>
             </a>
             <a class="btn btn-secondary" href="#how">See how it works</a>
@@ -67,7 +75,10 @@
           <p class="hero-note">Requires iPhone 15&nbsp;Pro or newer running iOS&nbsp;26. Manual entry works on any iPhone.</p>
         </div>
 
-        <div class="hero-phone">
+        <!-- Decorative illustration. The same split is presented accessibly in
+             the section below, so this is hidden from assistive tech rather
+             than read out as a stream of stray labels. -->
+        <div class="hero-phone" aria-hidden="true">
           <div class="phone">
             <div class="phone-screen">
               <div class="phone-status" aria-hidden="true"><span class="phone-notch"></span></div>
@@ -459,7 +470,7 @@
         “so how should we do this?”
       </p>
       <div class="btn-row reveal">
-        <a class="btn btn-primary is-pending" data-appstore="Download on the App Store" aria-disabled="true" href="#get">
+        <a class="btn btn-primary is-pending" data-appstore="Download on the App Store" href="#get">
           <span data-appstore-label>Coming to the App Store</span>
         </a>
       </div>

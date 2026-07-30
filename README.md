@@ -63,11 +63,26 @@ css/styles.css  Everything. Tokens at the top mirror Theme.swift
 js/site.js      App Store link, email assembly, scroll reveals. Progressive enhancement only
 fonts/          Geist + Geist Mono as woff2, converted from the app's bundled TTFs
 assets/         App icon, used as favicon and share image
+sitemap.xml     The three real URLs, pointed at from robots.txt
 .nojekyll       Tells Pages to serve the files as-is rather than running Jekyll
 ```
 
 Every page works with JavaScript disabled. The pages are plain HTML; `js/site.js` only
 upgrades things (reveals, the mailto link, the year in the footer).
+
+The one place that isn't merely additive is the reveal-on-scroll animation: the inline
+script in each `<head>` puts `.js` on `<html>`, which arms `.reveal { opacity: 0 }`, and
+only `site.js` clears it by adding `.in`. If `site.js` were ever to not run — a 404, a
+content blocker, a parse error — the landing page would be a hero above five thousand
+pixels of nothing. So the inline script **disarms itself after 2.5s** unless `site.js`
+has set `data-site-ready` on `<html>`, and `init()` disarms it immediately if it throws.
+If you touch either half, keep that property: the failure mode has to be a fully visible
+page.
+
+Absolute URLs live in three places — the `canonical`/`og:url`/`og:image` block in each
+`<head>`, and `sitemap.xml`. Open Graph images in particular **must** be absolute;
+scrapers do not resolve them against the page URL. Moving the site to a custom domain
+means updating all of them.
 
 ## The contact address
 

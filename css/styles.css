@@ -165,6 +165,11 @@ section {
   border-top: 1px solid var(--hairline);
 }
 
+/* Anchored sections have to clear the sticky nav, the same way .prose h2 does. */
+section[id] {
+  scroll-margin-top: 78px;
+}
+
 /* ---------- Type ---------- */
 
 h1,
@@ -284,7 +289,6 @@ p {
   background: var(--fill-raised);
   color: var(--secondary);
   border: 1px solid var(--hairline-strong);
-  cursor: default;
 }
 
 .btn-primary.is-pending:hover {
@@ -482,6 +486,30 @@ p {
   font-size: 0.875rem;
 }
 
+/* A whole receipt row as a link (404 page). The arrow alone was a 9x19px
+   target; the row gives the 44px Apple and WCAG 2.5.8 both want. */
+a.receipt-row {
+  min-height: 44px;
+  align-items: center;
+}
+
+a.receipt-row:hover {
+  text-decoration: none;
+}
+
+a.receipt-row .name {
+  color: var(--text-item);
+  transition: color 0.18s ease;
+}
+
+a.receipt-row:hover .name {
+  color: var(--text-bright);
+}
+
+a.receipt-row .money {
+  color: var(--accent);
+}
+
 /* ---------- Avatars ---------- */
 
 .avatar {
@@ -672,7 +700,10 @@ p {
   gap: 12px;
 }
 
-.quote-card .caret {
+/* Typing caret in the hero phone mock. Deliberately not scoped to a parent —
+   it was `.quote-card .caret` once, which matched nothing and rendered the
+   caret as a zero-width, transparent, unanimated span. */
+.caret {
   display: inline-block;
   width: 2px;
   height: 1.05em;
@@ -1196,7 +1227,7 @@ p {
     transform: none;
     transition: none;
   }
-  .quote-card .caret {
+  .caret {
     animation: none;
   }
   .btn:hover {
