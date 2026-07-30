@@ -5,7 +5,8 @@ an iPhone bill-splitting app. Static HTML and CSS, no build step, no dependencie
 push it and GitHub Pages serves it.
 
 The palette, type ramp, and receipt-paper motif are lifted from the app's
-`Theme.swift` so the site and the app read as one product.
+`Theme.swift` so the site and the app read as one product — with one deliberate
+exception, the dim text tones, explained under "Things worth knowing" below.
 
 ## The three URLs App Store Connect asks for
 
@@ -98,6 +99,15 @@ To change it, edit `MAIL_USER` / `MAIL_HOST` in `js/site.js` **and** the three
 
 - **The site is dark-only**, matching the app, which forces `.preferredColorScheme(.dark)`.
   There's no light palette to maintain.
+- **The dim text tones diverge from `Theme.swift` on purpose.** The app's ramp has six
+  steps below `--text`; on a `#0C0C0D` background only the top three clear WCAG AA
+  (4.5:1), and the room between the AA floor and `--secondary` is about half a stop —
+  not enough for three more steps. So `--mono-ink` and `--tertiary` are now aliases of
+  `--secondary-dim`, and `--faint` is demoted to non-text marks only, where 4.5:1
+  doesn't apply. The hierarchy those tokens used to carry is carried by size, weight,
+  and letter-spacing instead. **Don't re-sync these to the app's hex values** — the app
+  is read at arm's length on an OLED phone, the site is read on whatever the visitor
+  has. Every other colour still matches `Theme.swift` exactly.
 - **The app mockups are CSS, not screenshots.** When you have real App Store screenshots,
   they'd slot into the hero nicely — but CSS mockups stay correct when the app's colours
   change, and they're sharp at any size.

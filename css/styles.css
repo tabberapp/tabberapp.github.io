@@ -64,22 +64,28 @@
   --text-strong: #F0EDE7;
   --text-receipt: #DEDAD3;
   --text-item: #E6E2DB;
-  --secondary: #8B867E;
-  --secondary-dim: #7C776F;
-  --mono-ink: #6E6A63;
-  --tertiary: #5F5B55;
+
+  /* Dim text tones. Theme.swift has six steps here; on the web they have to
+     clear WCAG AA (4.5:1), and on a #0C0C0D background the room between the
+     AA floor and --secondary is about half a stop — not enough for six steps,
+     or even three. So --mono-ink and --tertiary are now aliases, and the
+     hierarchy they used to carry is carried by size, weight and letter-spacing
+     instead. Every value below is >= 4.5:1 on the lightest surface it lands on
+     (--fill-raised). This is the one place the site deliberately diverges from
+     the app's palette; the app is read at arm's length, the site isn't. */
+  --muted: #9A958C;          /* 5.7:1  ledes, prose body            */
+  --secondary: #8B867E;      /* 4.7:1  section intros, callouts     */
+  --secondary-dim: #8A847B;  /* 4.6:1  card body, steps, FAQ, items */
+  --mono-ink: var(--secondary-dim); /* micro-labels, money sublines */
+  --tertiary: var(--secondary-dim); /* smallest labels, hero note   */
+
+  /* Non-text marks only — never used for text, so 4.5:1 does not apply.
+     --decor-strong is for affordances, which still owe 3:1 (WCAG 1.4.11). */
   --faint: #4A4741;
-  --muted: #9A958C;
-  --gray: #9C978F;
-  --light-gray: #CFCAC2;
+  --decor-strong: #6E6A63;
 
-  --orange: #E0A354;
-  --orange-text: #E6C79A;
-  --indigo: #7C8CF8;
-  --pink-text: #E8A0AE;
-  --green-text: #A9D9C0;
-
-  /* Avatar rotation — Theme.newPersonHexes */
+  /* Avatar rotation — Theme.newPersonHexes. The full five are kept even though
+     the mockups only use three, so the set still matches the app. */
   --p1: #8FBF6B;
   --p2: #C99BE0;
   --p3: #6BC5C0;
@@ -316,11 +322,6 @@ p {
   align-items: center;
 }
 
-.btn .glyph {
-  font-size: 1.15em;
-  line-height: 0;
-}
-
 /* ---------- Nav ---------- */
 
 .nav {
@@ -411,13 +412,21 @@ p {
   }
 }
 
-/* ---------- Receipt paper ---------- */
-
-.paper {
-  background: var(--card);
-  border: 1px solid var(--hairline);
-  border-radius: var(--radius-card);
+/* Brand plus three links needs 366px. Below that the row used to overflow,
+   and `body { overflow-x: hidden }` clipped it rather than letting it scroll,
+   so Support became unreachable. Wrapping to a second line keeps every link
+   on screen — including at 375px with the browser font size turned up. */
+@media (max-width: 380px) {
+  .nav-inner {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
 }
+
+/* ---------- Receipt paper ---------- */
 
 /* Top-rounded card that a .tear hangs below — matches the app, where the
    receipt card is clipped with top radii only and PerforatedEdge sits under it. */
@@ -523,21 +532,6 @@ a.receipt-row .money {
   font-size: 0.8125rem;
   flex: none;
   user-select: none;
-}
-
-.avatar.sm {
-  width: 24px;
-  height: 24px;
-  font-size: 0.6875rem;
-}
-
-.face-stack {
-  display: flex;
-}
-
-.face-stack .avatar {
-  border: 2px solid var(--card);
-  margin-right: -7px;
 }
 
 /* ---------- Hero ---------- */
@@ -965,7 +959,7 @@ a.receipt-row .money {
   font-family: var(--mono);
   font-size: 1.125rem;
   line-height: 1.35;
-  color: var(--faint);
+  color: var(--decor-strong);
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
@@ -1195,14 +1189,19 @@ a.receipt-row .money {
 
 .footer-fine {
   margin-top: 34px;
-  color: var(--faint);
+  color: var(--secondary-dim);
   font-size: 0.8125rem;
   line-height: 1.7;
   max-width: 56em;
 }
 
+/* Underlined because the link colour is no longer far enough from the
+   surrounding text to carry the distinction on its own. */
 .footer-fine a {
-  color: var(--tertiary);
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(255, 255, 255, 0.2);
 }
 
 /* ---------- Reveal-on-scroll (progressive enhancement) ---------- */
@@ -1253,14 +1252,6 @@ a.receipt-row .money {
   top: 12px;
 }
 
-.center {
-  text-align: center;
-}
-
 .mt-lg {
   margin-top: clamp(30px, 4vw, 44px);
-}
-
-.scroll-x {
-  overflow-x: auto;
 }
