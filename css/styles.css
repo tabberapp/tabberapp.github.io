@@ -620,7 +620,15 @@ a.receipt-row .money {
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
 }
 
+/* 9:19.5 is the iPhone 15 Pro's screen (393x852pt). Without it the mock was
+   whatever its content came to — 2.6:1, a fifth taller than a real phone.
+   Height is now fixed and the scrolling region absorbs the difference, which
+   is what the actual screen does: AssignView scrolls the receipt and the
+   people under a pinned dock. */
 .phone-screen {
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 9 / 19.5;
   background: var(--bg);
   border-radius: 33px;
   overflow: hidden;
@@ -652,8 +660,51 @@ a.receipt-row .money {
   font-size: 0.8125rem;
 }
 
-.phone-body {
+.phone-title {
+  padding: 2px 18px 12px;
+}
+
+.phone-title b {
+  display: block;
+  color: var(--text);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.phone-title span {
+  display: block;
+  margin-top: 2px;
+  color: var(--secondary-dim);
+  font-size: 0.75rem;
+}
+
+/* The scrolling half of the screen. Content taller than the space runs out
+   under the mask rather than being cut on a hard edge — a viewport into more,
+   the same as the real list. */
+.phone-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
   padding: 0 14px;
+  -webkit-mask-image: linear-gradient(#000 88%, transparent 100%);
+  mask-image: linear-gradient(#000 88%, transparent 100%);
+}
+
+/* Pinned to the bottom, where the dock sits in AssignView. */
+.phone-dock {
+  flex: none;
+  margin: 10px 14px 0;
+  padding: 12px 14px;
+  background: var(--fill);
+  border: 1px solid var(--hairline-strong);
+  border-radius: 14px;
+}
+
+.phone-dock p {
+  font-size: 0.8125rem;
+  color: var(--text-item);
+  line-height: 1.5;
 }
 
 /* ---------- The sentence → people transformation ---------- */
