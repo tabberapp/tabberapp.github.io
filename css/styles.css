@@ -356,17 +356,15 @@ p {
   text-decoration: none;
 }
 
+/* The app icon itself, served at the size it renders (assets/app-icon-64.png
+   covers 28px up to @2x). iOS masks home-screen icons at 22.37% of the side,
+   and the source PNG is the unmasked App Store square — so the radius here is
+   28 * 0.2237, and the mark in the nav has the same silhouette as the icon on
+   the home screen. */
 .brand-mark {
   width: 28px;
   height: 28px;
-  border-radius: 8px;
-  background: var(--accent);
-  color: var(--ink-on-accent);
-  display: grid;
-  place-items: center;
-  font-family: var(--mono);
-  font-weight: 600;
-  font-size: 0.875rem;
+  border-radius: 6px;
   flex: none;
 }
 
@@ -918,11 +916,27 @@ a.receipt-row .money {
   border-bottom: 1px solid var(--hairline);
 }
 
+/* There are exactly four claims, so the columns are explicit rather than
+   auto-fit: between roughly 640px and 830px auto-fit resolved to three columns
+   and left the fourth card orphaned on a row of its own. 4 / 2 / 1 always
+   fills every row it starts. */
 .privacy-claims {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
   margin-top: 34px;
+}
+
+@media (max-width: 900px) {
+  .privacy-claims {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .privacy-claims {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .claim {
@@ -932,21 +946,33 @@ a.receipt-row .money {
   background: rgba(255, 255, 255, 0.02);
 }
 
+/* The figure leads the phrase on one line — "0 network calls" — so it reads as
+   the first word of the claim rather than a number stranded above it. Inline
+   rather than a flex row on purpose: if a lead phrase wraps, the second line
+   should run the full width of the card, not indent into a gutter. */
 .claim .k {
-  display: block;
   font-family: var(--mono);
-  font-size: 1.375rem;
+  font-size: 1.75rem;
   font-weight: 600;
+  line-height: 1;
   color: var(--accent);
+  letter-spacing: -0.01em;
+  margin-right: 9px;
+}
+
+.claim-lead {
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
   letter-spacing: -0.01em;
 }
 
-.claim .v {
-  display: block;
+.claim-sub {
   margin-top: 7px;
-  color: var(--secondary);
-  font-size: 0.875rem;
-  line-height: 1.5;
+  color: var(--secondary-dim);
+  font-size: 0.8125rem;
+  line-height: 1.55;
 }
 
 /* ---------- Callout ---------- */
@@ -1043,6 +1069,14 @@ a.receipt-row .money {
 .cta .wrap > * {
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Same 22.37% radius as .brand-mark, at 80px. Centred by `.cta .wrap > *`. */
+.cta-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 18px;
+  margin-bottom: 28px;
 }
 
 .cta .lede {
@@ -1234,9 +1268,17 @@ a.receipt-row .money {
   gap: 22px;
 }
 
+/* The brand is 28px tall because the app icon sets its height, but a footer
+   link's line box is only 24px (15px x 1.6). With `align-items: flex-start` on
+   the row, that left the "Tabber" wordmark sitting 3.6px below the links.
+   Matching the link line box to the mark's 28px puts both on the same optical
+   baseline. `align-items: baseline` cannot do this: .brand is an inline-flex
+   whose baseline is synthesised from the icon rather than the wordmark, which
+   pushes the two 7.4px apart in the other direction. */
 .footer-links a {
   color: var(--secondary);
   font-size: 0.9375rem;
+  line-height: 28px;
 }
 
 .footer-links a:hover {

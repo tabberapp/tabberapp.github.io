@@ -7,8 +7,9 @@
 <meta name="description" content="That page doesn't exist.">
 <meta name="theme-color" content="#0C0C0D">
 <meta name="robots" content="noindex">
-<link rel="icon" href="/assets/app-icon.png" type="image/png">
-<link rel="apple-touch-icon" href="/assets/app-icon.png">
+<link rel="icon" href="/assets/app-icon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/assets/app-icon-180.png" sizes="180x180" type="image/png">
+<link rel="apple-touch-icon" href="/assets/app-icon-180.png">
 <link rel="stylesheet" href="/css/styles.css">
 <script>(function(d){d.className+=' js';setTimeout(function(){if(!d.hasAttribute('data-site-ready'))d.className=d.className.replace(/(^|\s)js(\s|$)/,' ')},2500)})(document.documentElement);</script>
 </head>
@@ -19,7 +20,7 @@
 <header class="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="/">
-      <span class="brand-mark" aria-hidden="true">T</span>
+      <img class="brand-mark" src="/assets/app-icon-64.png" alt="" width="28" height="28" decoding="async">
       Tabber
     </a>
     <nav class="nav-links" aria-label="Primary">
@@ -54,7 +55,25 @@
 
 <footer class="footer">
   <div class="wrap">
-    <p class="footer-fine">© <span data-year>2026</span> Kyle Thornton.</p>
+    <div class="footer-inner">
+      <a class="brand" href="/">
+        <img class="brand-mark" src="/assets/app-icon-64.png" alt="" width="28" height="28" decoding="async">
+        Tabber
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/support.html">Support</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of use</a>
+      </nav>
+    </div>
+    <p class="footer-fine">
+      © <span data-year>2026</span> Kyle Thornton. Tabber is not affiliated with, endorsed by, or
+      sponsored by Apple Inc., Venmo, or PayPal. iPhone, App&nbsp;Store, and Apple Intelligence are
+      trademarks of Apple&nbsp;Inc. Set in
+      <a href="https://vercel.com/font" target="_blank" rel="noopener">Geist and Geist Mono</a>, used under the
+      SIL Open Font License.
+    </p>
   </div>
 </footer>
 

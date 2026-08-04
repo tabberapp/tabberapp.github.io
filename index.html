@@ -24,8 +24,9 @@
 <meta name="twitter:description" content="Photograph the receipt, describe who had what in plain English, and Tabber splits the bill. Runs entirely on your iPhone — nothing is uploaded.">
 <meta name="twitter:image" content="https://tabberapp.github.io/assets/app-icon.png">
 
-<link rel="icon" href="assets/app-icon.png" type="image/png">
-<link rel="apple-touch-icon" href="assets/app-icon.png">
+<link rel="icon" href="assets/app-icon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/app-icon-180.png" sizes="180x180" type="image/png">
+<link rel="apple-touch-icon" href="assets/app-icon-180.png">
 <link rel="stylesheet" href="css/styles.css">
 <script>(function(d){d.className+=' js';setTimeout(function(){if(!d.hasAttribute('data-site-ready'))d.className=d.className.replace(/(^|\s)js(\s|$)/,' ')},2500)})(document.documentElement);</script>
 </head>
@@ -36,7 +37,7 @@
 <header class="nav">
   <div class="wrap nav-inner">
     <a class="brand" href="index.html">
-      <span class="brand-mark" aria-hidden="true">T</span>
+      <img class="brand-mark" src="assets/app-icon-64.png" alt="" width="28" height="28" decoding="async">
       Tabber
     </a>
     <nav class="nav-links" aria-label="Primary">
@@ -333,20 +334,20 @@
 
       <div class="privacy-claims reveal">
         <div class="claim">
-          <span class="k">0</span>
-          <span class="v">network calls in the core flow — the app works in airplane mode</span>
+          <p class="claim-lead"><span class="k">0</span>network calls</p>
+          <p class="claim-sub">The core flow works in airplane mode.</p>
         </div>
         <div class="claim">
-          <span class="k">0</span>
-          <span class="v">accounts, sign-ins, or passwords. There is nothing to create</span>
+          <p class="claim-lead"><span class="k">0</span>accounts or passwords</p>
+          <p class="claim-sub">No sign-ins — there is nothing to create.</p>
         </div>
         <div class="claim">
-          <span class="k">0</span>
-          <span class="v">analytics, trackers, ads, or third-party SDKs</span>
+          <p class="claim-lead"><span class="k">0</span>trackers or ads</p>
+          <p class="claim-sub">No analytics, no third-party SDKs.</p>
         </div>
         <div class="claim">
-          <span class="k">0</span>
-          <span class="v">data collected by the developer, as filed in the App Store privacy manifest</span>
+          <p class="claim-lead"><span class="k">0</span>data collected</p>
+          <p class="claim-sub">As declared by the developer in the App&nbsp;Store privacy manifest.</p>
         </div>
       </div>
 
@@ -476,6 +477,10 @@
   <!-- =========================== CTA ============================== -->
   <section id="get" class="cta section-hairline">
     <div class="wrap">
+      <!-- Decorative: the heading and the wordmark in the nav already name the
+           app, so this is the icon shown, not announced. -->
+      <img class="cta-icon reveal" src="assets/app-icon-180.png" alt=""
+           width="80" height="80" decoding="async">
       <span class="micro micro-accent reveal">Get Tabber</span>
       <h2 class="reveal" style="margin-top:14px">Stop doing arithmetic at dinner.</h2>
       <p class="lede reveal">
@@ -500,21 +505,21 @@
   <div class="wrap">
     <div class="footer-inner">
       <a class="brand" href="index.html">
-        <span class="brand-mark" aria-hidden="true">T</span>
+        <img class="brand-mark" src="assets/app-icon-64.png" alt="" width="28" height="28" decoding="async">
         Tabber
       </a>
       <nav class="footer-links" aria-label="Footer">
         <a href="index.html">Home</a>
         <a href="support.html">Support</a>
         <a href="privacy.html">Privacy</a>
-        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" rel="noopener">Terms of use</a>
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Terms of use</a>
       </nav>
     </div>
     <p class="footer-fine">
       © <span data-year>2026</span> Kyle Thornton. Tabber is not affiliated with, endorsed by, or
       sponsored by Apple Inc., Venmo, or PayPal. iPhone, App&nbsp;Store, and Apple Intelligence are
       trademarks of Apple&nbsp;Inc. Set in
-      <a href="https://vercel.com/font" rel="noopener">Geist and Geist Mono</a>, used under the
+      <a href="https://vercel.com/font" target="_blank" rel="noopener">Geist and Geist Mono</a>, used under the
       SIL Open Font License.
     </p>
   </div>
