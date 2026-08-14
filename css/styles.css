@@ -84,6 +84,16 @@
   --faint: #4A4741;
   --decor-strong: #6E6A63;
 
+  /* The app icon's field is #0C0C0D, the same value as --bg, so the tile has no
+     edge of its own anywhere it appears. It gets one the way the cards do, in
+     three parts: a hairline at the boundary, a brighter inset along the top so
+     the edge implies a light source, and a shadow cast beneath to seat it on
+     the page. Edging all four sides evenly is what made earlier attempts read
+     as a border drawn around a square rather than as an object. */
+  --icon-edge: rgba(255, 255, 255, 0.08);
+  --icon-lit: rgba(255, 255, 255, 0.10);
+  --icon-cast: rgba(0, 0, 0, 0.7);
+
   /* Avatar rotation — Theme.newPersonHexes. The full five are kept even though
      the mockups only use three, so the set still matches the app. */
   --p1: #8FBF6B;
@@ -368,6 +378,11 @@ p {
   height: 28px;
   border-radius: 6px;
   flex: none;
+  /* Shallower cast than the CTA: at 28px a deep one just smudges the nav bar. */
+  box-shadow:
+    inset 0 1px 0 var(--icon-lit),
+    0 0 0 1px var(--icon-edge),
+    0 2px 8px var(--icon-cast);
 }
 
 .nav-links {
@@ -1075,14 +1090,17 @@ a.receipt-row .money {
 
 /* Same 22.37% radius as .brand-mark, at 80px. Centred by `.cta .wrap > *`.
    This is the one place the icon is shown *as* an icon — the thing you will
-   tap on a home screen — but its field is --bg, so the tile would otherwise
-   have no edge at all. The hairline draws that edge back. `box-shadow` rather
-   than `border`, so the ring sits on the 80px box instead of adding to it. */
+   tap on a home screen — so it is lifted the furthest off the page: same three
+   parts as .brand-mark, with the cast deepened to match the size. `box-shadow`
+   rather than `border`, so none of it sits inside the 80px. */
 .cta-icon {
   width: 80px;
   height: 80px;
   border-radius: 18px;
-  box-shadow: inset 0 0 0 1px var(--hairline-strong);
+  box-shadow:
+    inset 0 1px 0 var(--icon-lit),
+    0 0 0 1px var(--icon-edge),
+    0 10px 28px var(--icon-cast);
   margin-bottom: 28px;
 }
 
