@@ -359,8 +359,10 @@ p {
 /* The app icon itself, served at the size it renders (assets/app-icon-64.png
    covers 28px up to @2x). iOS masks home-screen icons at 22.37% of the side,
    and the source PNG is the unmasked App Store square — so the radius here is
-   28 * 0.2237, and the mark in the nav has the same silhouette as the icon on
-   the home screen. */
+   28 * 0.2237, matching the silhouette the icon has on the home screen.
+   The icon's field is --bg, so at this size the tile reads as the bare green
+   mark next to the wordmark; the radius still matters if it is ever set on a
+   lighter surface. */
 .brand-mark {
   width: 28px;
   height: 28px;
@@ -1071,11 +1073,16 @@ a.receipt-row .money {
   margin-right: auto;
 }
 
-/* Same 22.37% radius as .brand-mark, at 80px. Centred by `.cta .wrap > *`. */
+/* Same 22.37% radius as .brand-mark, at 80px. Centred by `.cta .wrap > *`.
+   This is the one place the icon is shown *as* an icon — the thing you will
+   tap on a home screen — but its field is --bg, so the tile would otherwise
+   have no edge at all. The hairline draws that edge back. `box-shadow` rather
+   than `border`, so the ring sits on the 80px box instead of adding to it. */
 .cta-icon {
   width: 80px;
   height: 80px;
   border-radius: 18px;
+  box-shadow: inset 0 0 0 1px var(--hairline-strong);
   margin-bottom: 28px;
 }
 
