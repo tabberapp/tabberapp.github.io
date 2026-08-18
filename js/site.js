@@ -8,34 +8,7 @@
   'use strict';
 
   /* ------------------------------------------------------------------
-     1. App Store link
-     ------------------------------------------------------------------
-     Tabber isn't on the App Store yet, so every "Get it on the App Store"
-     button renders as a non-clickable "Coming to the App Store" chip.
-
-     >>> TO GO LIVE: put the App Store URL in the line below. <<<
-     Example: 'https://apps.apple.com/app/tabber/id1234567890'
-     Every CTA on every page turns into a real link. Nothing else to change.
-  */
-  var APP_STORE_URL = null;
-
-  function wireAppStoreLinks() {
-    if (!APP_STORE_URL) return;
-
-    var ctas = document.querySelectorAll('[data-appstore]');
-    for (var i = 0; i < ctas.length; i++) {
-      var el = ctas[i];
-      el.setAttribute('href', APP_STORE_URL);
-      el.setAttribute('rel', 'noopener');
-      el.classList.remove('is-pending');
-
-      var label = el.querySelector('[data-appstore-label]');
-      if (label) label.textContent = el.dataset.appstore || 'Download on the App Store';
-    }
-  }
-
-  /* ------------------------------------------------------------------
-     2. Contact address
+     1. Contact address
      ------------------------------------------------------------------
      Assembled at runtime rather than sitting in the HTML source. This is a
      speed bump for naive scrapers, not real protection — it is readable to
@@ -65,7 +38,7 @@
   }
 
   /* ------------------------------------------------------------------
-     3. Reveal on scroll
+     2. Reveal on scroll
      ------------------------------------------------------------------
      Guarded by the .js class, so with JavaScript off nothing is ever hidden.
      Reduced-motion users get the content with no transition (see styles.css).
@@ -94,7 +67,7 @@
   }
 
   /* ------------------------------------------------------------------
-     4. Current year in the footer
+     3. Current year in the footer
   */
   function wireYear() {
     var slots = document.querySelectorAll('[data-year]');
@@ -103,7 +76,7 @@
   }
 
   /* ------------------------------------------------------------------
-     5. Boot
+     4. Boot
      ------------------------------------------------------------------
      The .js class on <html> is what arms `.reveal { opacity: 0 }`, so
      everything below the hero on the landing page is invisible until
@@ -120,7 +93,6 @@
 
   function init() {
     try {
-      wireAppStoreLinks();
       wireEmail();
       wireReveals();
       wireYear();

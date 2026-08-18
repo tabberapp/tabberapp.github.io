@@ -299,19 +299,6 @@ p {
   background: #4ACB8B;
 }
 
-/* The App Store CTA before the app is live. Swapping APP_STORE_URL in
-   js/site.js turns every one of these into a real link (see README). */
-.btn-primary.is-pending {
-  background: var(--fill-raised);
-  color: var(--secondary);
-  border: 1px solid var(--hairline-strong);
-}
-
-.btn-primary.is-pending:hover {
-  background: var(--fill-raised);
-  transform: none;
-}
-
 .btn-secondary {
   background: var(--fill-raised);
   color: var(--text);
@@ -401,6 +388,14 @@ p {
 .nav-links a[aria-current='page'] {
   color: var(--text);
   text-decoration: none;
+}
+
+/* The nav pill is a `.nav-links a` as well as a `.btn-primary`, and the nav
+   selector is a specificity notch higher — so the ink has to be named here,
+   hover included, or the muted nav-link colour lands on the green fill. */
+.nav-links .nav-cta,
+.nav-links .nav-cta:hover {
+  color: var(--ink-on-accent);
 }
 
 .nav-cta {

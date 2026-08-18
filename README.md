@@ -40,18 +40,13 @@ git add -A && git commit -m "..." && git push
 Pages rebuilds within a minute or so. The repo has to stay **public** for Pages on a
 free plan — nothing here is private, and the app repo is separate and stays private.
 
-## Going live on the App Store
+## The App Store link
 
-The download buttons currently render as a non-clickable "Coming to the App Store"
-chip. To turn every one of them into a real link, set one variable in
-[`js/site.js`](js/site.js):
-
-```js
-var APP_STORE_URL = 'https://apps.apple.com/app/tabber/id1234567890';
-```
-
-That's the only change needed — the nav button, the hero button, and the closing CTA
-all read from it, on every page.
+Tabber is live at **https://apps.apple.com/app/id6796184808**. The link is written
+straight into the markup — the nav button on all three pages, plus the hero and
+closing CTAs on the landing page — so the download path does not depend on
+JavaScript. Changing it means editing those five `href`s; `grep -rn apps.apple.com
+*.html` finds every one.
 
 ## Structure
 
@@ -61,7 +56,7 @@ privacy.html    Privacy policy (Apple requires this URL)
 support.html    Support page: compatibility, FAQ, troubleshooting, contact (Apple requires this URL)
 404.html        Not-found page
 css/styles.css  Everything. Tokens at the top mirror Theme.swift
-js/site.js      App Store link, email assembly, scroll reveals. Progressive enhancement only
+js/site.js      Email assembly, scroll reveals, footer year. Progressive enhancement only
 fonts/          Geist + Geist Mono as woff2, converted from the app's bundled TTFs
 assets/         App icon, used as favicon and share image
 sitemap.xml     The three real URLs, pointed at from robots.txt
