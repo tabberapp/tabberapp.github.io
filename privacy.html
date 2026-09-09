@@ -15,18 +15,28 @@
 <meta property="og:url" content="https://tabberapp.github.io/privacy.html">
 <meta property="og:title" content="Privacy Policy — Tabber">
 <meta property="og:description" content="Tabber collects no data. Everything stays on your iPhone.">
-<meta property="og:image" content="https://tabberapp.github.io/assets/app-icon.png">
-<meta property="og:image:width" content="1024">
-<meta property="og:image:height" content="1024">
-<meta property="og:image:alt" content="The Tabber app icon">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://tabberapp.github.io/assets/og-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Tabber app icon above the line “Snap it. Say it. Split it.”">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Privacy Policy — Tabber">
 <meta name="twitter:description" content="Tabber collects no data. Everything stays on your iPhone.">
-<meta name="twitter:image" content="https://tabberapp.github.io/assets/app-icon.png">
+<meta name="twitter:image" content="https://tabberapp.github.io/assets/og-banner.png">
+<meta name="twitter:image:alt" content="The Tabber app icon above the line “Snap it. Say it. Split it.”">
 
 <link rel="icon" href="assets/app-icon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="assets/app-icon-180.png" sizes="180x180" type="image/png">
 <link rel="apple-touch-icon" href="assets/app-icon-180.png">
+<meta name="apple-itunes-app" content="app-id=6796184808">
+
+<!-- The three faces the first screen needs. The stylesheet below is render-
+     blocking, so without these the @font-face URLs are not discovered until
+     it has parsed. Fonts are always fetched in CORS mode — hence crossorigin,
+     without which the browser fetches each file a second time. -->
+<link rel="preload" href="fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Geist-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/styles.css">
 <script>(function(d){d.className+=' js';setTimeout(function(){if(!d.hasAttribute('data-site-ready'))d.className=d.className.replace(/(^|\s)js(\s|$)/,' ')},2500)})(document.documentElement);</script>
 </head>
@@ -59,7 +69,7 @@
         Tabber collects nothing. This page explains, in detail, what that means and
         why the app is able to say it.
       </p>
-      <p class="updated">Effective 30 July 2026 · Applies to Tabber for iOS, version 1.0</p>
+      <p class="updated">Effective 30 July 2026 · Applies to Tabber for iOS, version 1.4</p>
     </div>
   </div>
 
@@ -134,7 +144,7 @@
       </p>
       <ul>
         <li><strong>Saved tabs</strong> — the restaurant name, date, line items, amounts, and who owed what</li>
-        <li><strong>Remembered people</strong> — the names, initials, and avatar colours of people you've split bills with, plus an optional Venmo username if you enter one</li>
+        <li><strong>Remembered people</strong> — the names, initials, and avatar colours of people you've split bills with or added by hand in Settings, plus an optional Venmo username if you enter one</li>
         <li><strong>Receipt photos</strong> — a downscaled copy of each receipt image, kept according to the retention setting you choose (see <a href="#delete">section 10</a>)</li>
         <li><strong>Your preferences</strong> — your own first name, default tip percentage, whether tip is calculated pre- or post-tax, entry mode, and photo retention rule, stored in the app's own settings</li>
       </ul>
@@ -314,7 +324,7 @@
         request through Venmo, and requesting money through Apple Cash in Messages. Both
         would work by handing a prefilled request to that app on your device — the same
         way the share sheet does today — rather than by Tabber contacting any service
-        itself. Neither is implemented in version 1.0.
+        itself. Neither is implemented in version 1.4.
       </p>
 
       <h2 id="contact">14. Contact</h2>

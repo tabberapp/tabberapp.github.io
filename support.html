@@ -15,18 +15,28 @@
 <meta property="og:url" content="https://tabberapp.github.io/support.html">
 <meta property="og:title" content="Support — Tabber">
 <meta property="og:description" content="Help with Tabber for iPhone, and how to reach the developer.">
-<meta property="og:image" content="https://tabberapp.github.io/assets/app-icon.png">
-<meta property="og:image:width" content="1024">
-<meta property="og:image:height" content="1024">
-<meta property="og:image:alt" content="The Tabber app icon">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://tabberapp.github.io/assets/og-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Tabber app icon above the line “Snap it. Say it. Split it.”">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Support — Tabber">
 <meta name="twitter:description" content="Help with Tabber for iPhone, and how to reach the developer.">
-<meta name="twitter:image" content="https://tabberapp.github.io/assets/app-icon.png">
+<meta name="twitter:image" content="https://tabberapp.github.io/assets/og-banner.png">
+<meta name="twitter:image:alt" content="The Tabber app icon above the line “Snap it. Say it. Split it.”">
 
 <link rel="icon" href="assets/app-icon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="assets/app-icon-180.png" sizes="180x180" type="image/png">
 <link rel="apple-touch-icon" href="assets/app-icon-180.png">
+<meta name="apple-itunes-app" content="app-id=6796184808">
+
+<!-- The three faces the first screen needs. The stylesheet below is render-
+     blocking, so without these the @font-face URLs are not discovered until
+     it has parsed. Fonts are always fetched in CORS mode — hence crossorigin,
+     without which the browser fetches each file a second time. -->
+<link rel="preload" href="fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Geist-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/styles.css">
 <script>(function(d){d.className+=' js';setTimeout(function(){if(!d.hasAttribute('data-site-ready'))d.className=d.className.replace(/(^|\s)js(\s|$)/,' ')},2500)})(document.documentElement);</script>
 </head>
@@ -131,7 +141,7 @@
           <summary>What does Tabber cost?</summary>
           <div class="answer">
             <p>
-              Version 1.0 is free to download, with no subscription, no advertising, and no
+              Version 1.4 is free to download, with no subscription, no advertising, and no
               in-app purchases. Because all the intelligence runs on your own device, there
               are no server bills to cover.
             </p>
@@ -198,8 +208,10 @@
           <summary>Someone at the table wasn't mentioned in my sentence.</summary>
           <div class="answer">
             <p>
-              Use <strong>+ Add person</strong> on the assign screen to seat them by hand,
-              then assign their items as normal.
+              Seating the table is its own step, just before you assign anything: tap a
+              name Tabber remembers, type a new one, or say the whole table at once. If you
+              have already moved on and someone is missing, <strong>+ Add person</strong> is
+              still there on the assign screen — seat them and assign their items as normal.
             </p>
           </div>
         </details>
@@ -224,9 +236,13 @@
               behind.
             </p>
             <p>
-              Remembered people are listed in Settings, where they can be renamed, merged,
-              or deleted. There are no saved groups; people are always remembered
-              individually.
+              Remembered people are listed under <strong>Remembered people</strong> in
+              Settings, where you can also add someone by hand — useful before your first
+              split with them, so their name is ready to tap when you seat the table.
+              Records can be renamed, merged when two of them turn out to be the same
+              person, and forgotten with a left swipe. Forgetting someone leaves your past
+              tabs exactly as they were; the name just stops being matched next time. There
+              are no saved groups; people are always remembered individually.
             </p>
           </div>
         </details>
@@ -244,8 +260,9 @@
             </p>
             <p>
               The default tip percentage and whether tip is calculated on the pre-tax
-              subtotal or the post-tax total are both set in Settings. The percentage can
-              also be changed on any individual tab, on the review screen.
+              subtotal or the post-tax total are both set in Settings. Every split then gets
+              its own tip step, where you can keep the tip the receipt already printed, pick
+              a different percentage, type an amount, or leave no tip at all.
             </p>
           </div>
         </details>
@@ -332,16 +349,34 @@
         faster than fighting with the camera.
       </p>
 
-      <h3>Tabber says this iPhone can't read receipts</h3>
+      <h3>Tabber says it can't scan receipts</h3>
       <p>
-        That message means the device doesn't support the on-device models Tabber needs —
-        it requires iPhone&nbsp;15&nbsp;Pro or newer with Apple Intelligence enabled. Check
-        <strong>Settings → Apple Intelligence &amp; Siri</strong> on your iPhone; if it's
-        available but switched off, turning it on enables scanning.
+        Reading a receipt from a photo needs Apple Intelligence, and there are three
+        separate reasons it might not be available. Tabber names the one that actually
+        applies to your iPhone rather than blaming the hardware for all three:
       </p>
+      <ul>
+        <li>
+          <strong>“This iPhone can't scan receipts.”</strong> The hardware doesn't support
+          Apple Intelligence. Scanning needs iPhone&nbsp;15&nbsp;Pro or newer.
+        </li>
+        <li>
+          <strong>“Scanning needs Apple Intelligence.”</strong> Your iPhone supports it, but
+          it's switched off. The setting is in
+          Settings&nbsp;→&nbsp;Apple&nbsp;Intelligence&nbsp;&amp;&nbsp;Siri, if you'd rather
+          scan receipts than type them in.
+        </li>
+        <li>
+          <strong>“Apple Intelligence is still setting up.”</strong> The model is still
+          downloading, which usually takes a few minutes on Wi-Fi. Scanning comes back on
+          its own once it finishes — Tabber re-checks each time you return to the app, so
+          there's nothing to restart.
+        </li>
+      </ul>
       <p>
-        On hardware that genuinely can't run it, manual entry gives you the same tabs and
-        the same math.
+        In every case the rest of the app is untouched: type the bill in instead, and the
+        seating, the assigning, the prorated tax and tip, and the saved tabs all work
+        identically.
       </p>
 
       <h3>Dictation isn't picking anything up</h3>

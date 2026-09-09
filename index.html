@@ -15,19 +15,59 @@
 <meta property="og:url" content="https://tabberapp.github.io/">
 <meta property="og:title" content="Tabber — Snap it. Say it. Split it.">
 <meta property="og:description" content="Scan the receipt, say who had what, and Tabber works out the rest — tax, tips and splits. No hassle. No network needed. No kidding.">
-<meta property="og:image" content="https://tabberapp.github.io/assets/app-icon.png">
-<meta property="og:image:width" content="1024">
-<meta property="og:image:height" content="1024">
-<meta property="og:image:alt" content="The Tabber app icon">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://tabberapp.github.io/assets/og-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Tabber app icon above the line “Snap it. Say it. Split it.”">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tabber — Snap it. Say it. Split it.">
 <meta name="twitter:description" content="Scan the receipt, say who had what, and Tabber works out the rest — tax, tips and splits. No hassle. No network needed. No kidding.">
-<meta name="twitter:image" content="https://tabberapp.github.io/assets/app-icon.png">
+<meta name="twitter:image" content="https://tabberapp.github.io/assets/og-banner.png">
+<meta name="twitter:image:alt" content="The Tabber app icon above the line “Snap it. Say it. Split it.”">
 
 <link rel="icon" href="assets/app-icon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="assets/app-icon-180.png" sizes="180x180" type="image/png">
 <link rel="apple-touch-icon" href="assets/app-icon-180.png">
+<meta name="apple-itunes-app" content="app-id=6796184808">
+
+<!-- The three faces the first screen needs. The stylesheet below is render-
+     blocking, so without these the @font-face URLs are not discovered until
+     it has parsed. Fonts are always fetched in CORS mode — hence crossorigin,
+     without which the browser fetches each file a second time. -->
+<link rel="preload" href="fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/Geist-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/GeistMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/styles.css">
+
+<!-- Nothing here is a claim the page does not already make in prose. There is
+     deliberately no aggregateRating: the app has no ratings to report, and an
+     invented one is both a lie and a manual action waiting to happen. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Tabber",
+  "url": "https://tabberapp.github.io/",
+  "image": "https://tabberapp.github.io/assets/og-banner.png",
+  "description": "Scan the receipt, say who had what, and Tabber works out the rest — tax, tips and splits. Everything runs on the iPhone; the core flow makes no network calls.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "iOS 26",
+  "softwareVersion": "1.4",
+  "softwareRequirements": "iOS 26 or later. Receipt scanning and plain-English assignment need an Apple Intelligence–capable iPhone (iPhone 15 Pro or newer); every other iPhone on iOS 26 can use manual entry.",
+  "permissions": "Camera, Microphone, Speech Recognition, Photo Library — each optional, each declinable without losing access to the app",
+  "downloadUrl": "https://apps.apple.com/app/id6796184808",
+  "installUrl": "https://apps.apple.com/app/id6796184808",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Kyle Thornton"
+  }
+}
+</script>
 <script>(function(d){d.className+=' js';setTimeout(function(){if(!d.hasAttribute('data-site-ready'))d.className=d.className.replace(/(^|\s)js(\s|$)/,' ')},2500)})(document.documentElement);</script>
 </head>
 <body>
@@ -79,13 +119,14 @@
             <div class="phone-screen">
               <div class="phone-status" aria-hidden="true"><span class="phone-notch"></span></div>
 
-              <!-- Assign is step 2 of 3 in the app (AssignView); step 3 is the
-                   summary. The receipt is abbreviated, so the two elided items
-                   and the tax and tip are shown as their own rows — this mock
-                   has to add up like everything else on the page does. -->
+              <!-- Assign is step 4 of 5 in the app (AssignView); the five are
+                   review, tip, seating, assign, summary. The receipt is
+                   abbreviated, so the two elided items and the tax and tip are
+                   shown as their own rows — this mock has to add up like
+                   everything else on the page does. -->
               <div class="phone-head">
                 <span class="link">Back</span>
-                <span class="micro">Step 2 of 3</span>
+                <span class="micro">Step 4 of 5</span>
                 <span class="link">Reset</span>
               </div>
 
@@ -248,7 +289,7 @@
       <div class="section-head reveal">
         <span class="micro">How it works</span>
         <h2>Receipt in, per-person totals out.</h2>
-        <p>Six steps, and two of them are just checking Tabber got it right.</p>
+        <p>Eight steps, and two of them are just checking Tabber got it right.</p>
       </div>
 
       <ol class="steps reveal">
@@ -293,10 +334,31 @@
         </li>
         <li>
           <div>
+            <h3>Tip</h3>
+            <p>
+              Keep the tip the receipt already printed, pick a percentage, type an
+              amount, or leave none. Your usual percentage and whether it's figured
+              pre- or post-tax are remembered from Settings.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Seat</h3>
+            <p>
+              Who's at the table, before anything is assigned. People Tabber already
+              knows are one tap each, a new name is typed once, and the whole table can
+              be said in a breath. Splitting alone is fine too.
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
             <h3>Assign</h3>
             <p>
               Type or dictate who had what. Items land under each person as they're
-              recognised. Anyone the sentence didn't name can be seated by hand.
+              recognised — or tap a row to place it, and hold one to place several at
+              once.
             </p>
           </div>
         </li>
