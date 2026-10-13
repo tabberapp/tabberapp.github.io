@@ -69,7 +69,7 @@
         Tabber collects nothing. This page explains, in detail, what that means and
         why the app is able to say it.
       </p>
-      <p class="updated">Effective 13 October 2026 · Applies to Tabber for iOS, version 1.5</p>
+      <p class="updated">Effective 13 October 2026 · Applies to Tabber for iOS, version 1.6</p>
     </div>
   </div>
 
@@ -147,7 +147,7 @@
         <li><strong>Drafts</strong> — a tab you chose to finish later, saved whole: its items, people, assignments, tip, the step you left it on, and its receipt photo. A draft exists only if you tap Save draft, and it is removed when you finish or delete it</li>
         <li><strong>Remembered people</strong> — the names, initials, and avatar colours of people you've split bills with or added by hand in Settings</li>
         <li><strong>Receipt photos</strong> — a downscaled copy of each receipt image, kept with a saved tab according to the retention setting you choose, and with a draft until it's finished (see <a href="#delete">section 10</a>)</li>
-        <li><strong>Your preferences</strong> — your own first name, default tip percentage, whether tip is calculated pre- or post-tax, entry mode, and photo retention rule, stored in the app's own settings</li>
+        <li><strong>Your preferences</strong> — your own first name, default tip percentage, whether tip is calculated pre- or post-tax, entry mode, photo retention rule, and whether Tabber uses Apple Intelligence, stored in the app's own settings</li>
       </ul>
       <p>
         Saved tabs are stored as snapshots: names and amounts are copied in at the time
@@ -188,9 +188,11 @@
 
       <h2 id="ai">5. On-device intelligence</h2>
       <p>
-        Tabber's receipt reading and its plain-English assignment step use Apple's Vision
-        framework and Apple's Foundation Models — the on-device generative models built
-        into iOS 26 on Apple Intelligence–capable hardware.
+        Tabber reads receipts with Apple's Vision framework on every iPhone. Where Apple
+        Intelligence is available and switched on for Tabber, it also uses Apple's
+        Foundation Models — the on-device generative models built into iOS 26 on Apple
+        Intelligence–capable hardware — to tidy item names and to understand your
+        description of who had what.
       </p>
       <p>
         These models run locally on your iPhone. Tabber does not use ChatGPT, Private
@@ -199,8 +201,10 @@
         is used to train any model.
       </p>
       <p>
-        On iPhones that cannot run these models, Tabber falls back to a fully manual entry
-        mode with identical split arithmetic — and identical privacy characteristics.
+        On iPhones without these models, or with Apple Intelligence switched off for Tabber
+        in its Settings, receipts are read from their printed rows by Vision alone and you
+        tap who had what — with identical split arithmetic, and identical privacy
+        characteristics.
       </p>
 
       <h2 id="sharing">6. When you share a tab</h2>
@@ -329,7 +333,7 @@
         request through Venmo, and requesting money through Apple Cash in Messages. Both
         would work by handing a prefilled request to that app on your device — the same
         way the share sheet does today — rather than by Tabber contacting any service
-        itself. Neither is implemented in version 1.5.
+        itself. Neither is implemented in version 1.6.
       </p>
 
       <h2 id="contact">14. Contact</h2>
