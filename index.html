@@ -52,7 +52,7 @@
   "description": "Scan the receipt, say who had what, and Tabber works out the rest — tax, tips and splits. Everything runs on the iPhone; the core flow makes no network calls.",
   "applicationCategory": "FinanceApplication",
   "operatingSystem": "iOS 26",
-  "softwareVersion": "1.4",
+  "softwareVersion": "1.5",
   "softwareRequirements": "iOS 26 or later. Receipt scanning and plain-English assignment need an Apple Intelligence–capable iPhone (iPhone 15 Pro or newer); every other iPhone on iOS 26 can use manual entry.",
   "permissions": "Camera, Microphone, Speech Recognition, Photo Library — each optional, each declinable without losing access to the app",
   "downloadUrl": "https://apps.apple.com/app/id6796184808",
@@ -97,7 +97,7 @@
       <div class="hero-grid">
         <div>
           <span class="micro micro-accent">All on device · No network needed</span>
-          <h1>Snap it. Say it. Split it.</h1>
+          <h1>Snap&nbsp;it. Say&nbsp;it. Split&nbsp;it.</h1>
           <p class="lede">
             Scan the receipt, say who had what, and Tabber works out the rest — tax,
             tips and splits. No hassle. No network needed. No kidding.
@@ -120,25 +120,28 @@
               <div class="phone-status" aria-hidden="true"><span class="phone-notch"></span></div>
 
               <!-- Assign is step 4 of 5 in the app (AssignView); the five are
-                   review, tip, seating, assign, summary. The receipt is
-                   abbreviated, so the two elided items and the tax and tip are
-                   shown as their own rows — this mock has to add up like
-                   everything else on the page does. -->
+                   review, tip, seating, assign, summary. Since build 59 the
+                   header's trailing slot is Exit, which offers to save the tab
+                   as a draft; Reset moved down beside People as "Unassign all".
+                   The title, subtitle and receipt label are AssignView's own
+                   strings. The receipt is abbreviated, so the two elided items
+                   and the tax and tip are shown as their own rows — this mock
+                   has to add up like everything else on the page does. -->
               <div class="phone-head">
                 <span class="link">Back</span>
                 <span class="micro">Step 4 of 5</span>
-                <span class="link">Reset</span>
+                <span class="link">Exit</span>
               </div>
 
               <div class="phone-title">
                 <b>Who had what?</b>
-                <span>Say it the way you'd say it out loud.</span>
+                <span>Say it or type it.</span>
               </div>
 
               <div class="phone-scroll">
                 <div class="paper-top" style="padding:14px 16px 12px">
-                  <div class="receipt-row is-sub" style="padding-top:0">
-                    <span class="name micro" style="letter-spacing:.12em">Lucia's · 5 items</span>
+                  <div class="receipt-label">
+                    <span class="micro">Receipt · 5 items</span>
                   </div>
                   <div class="receipt-row">
                     <span class="name">Grilled Salmon</span><span class="money">$32.00</span>
@@ -176,7 +179,7 @@
                       <span class="money">$28.27</span>
                     </div>
                     <ul class="person-items">
-                      <li><span>Calamari <span class="shared">· shared</span></span><span class="money">$8.00</span></li>
+                      <li><span>Calamari <span class="shared">· ÷2</span></span><span class="money">$8.00</span></li>
                       <li><span>Old Fashioned</span><span class="money">$14.00</span></li>
                       <li><span>Tax &amp; tip</span><span class="money">$6.27</span></li>
                     </ul>
@@ -240,7 +243,7 @@
               <span class="money">$28.27</span>
             </div>
             <ul class="person-items">
-              <li><span>Calamari <span class="shared">· split 2 ways</span></span><span class="money">$8.00</span></li>
+              <li><span>Calamari <span class="shared">· ÷2</span></span><span class="money">$8.00</span></li>
               <li><span>Old Fashioned</span><span class="money">$14.00</span></li>
               <li><span>Tax &amp; tip</span><span class="money">$6.27</span></li>
             </ul>
@@ -265,7 +268,7 @@
               <span class="money">$10.28</span>
             </div>
             <ul class="person-items">
-              <li><span>Calamari <span class="shared">· split 2 ways</span></span><span class="money">$8.00</span></li>
+              <li><span>Calamari <span class="shared">· ÷2</span></span><span class="money">$8.00</span></li>
               <li><span>Tax &amp; tip</span><span class="money">$2.28</span></li>
             </ul>
           </div>
@@ -289,40 +292,45 @@
       <div class="section-head reveal">
         <span class="micro">How it works</span>
         <h2>Receipt in, per-person totals out.</h2>
-        <p>Eight steps, and two of them are just checking Tabber got it right.</p>
+        <p>
+          The photo is read and audited in the seconds after you take it. Then come
+          the five steps the app numbers, and the first is just checking Tabber got
+          it right.
+        </p>
       </div>
 
+      <!-- What happens before "Step 1 of 5". The app shows these as the camera
+           and the parsing screen, not as numbered steps, so they are set apart
+           here rather than counted. -->
+      <div class="prelude reveal">
+        <div class="prelude-card">
+          <span class="micro">Capture</span>
+          <p>
+            Photograph the receipt with its total in the gray band above the
+            shutter, or pick one from Photos. The original capture is read, not a
+            compressed copy, so small print survives.
+          </p>
+        </div>
+        <div class="prelude-card">
+          <span class="micro">Parse</span>
+          <p>
+            The photo is straightened and cropped, then read <em>as a table</em>, so
+            each item stays attached to its own price instead of being paired by
+            position.
+          </p>
+        </div>
+        <div class="prelude-card">
+          <span class="micro">Check</span>
+          <p>
+            The printed subtotal and total audit the parse: the items have to add
+            up. The strip in the band is read on its own as a second opinion on
+            the total. Where it doesn't add up, Tabber says so.
+          </p>
+        </div>
+      </div>
+
+      <!-- AssignView's header reads "Step 4 of 5"; these are the five. -->
       <ol class="steps reveal">
-        <li>
-          <div>
-            <h3>Capture</h3>
-            <p>
-              Photograph the receipt, or pick one from Photos. Tabber reads the
-              original capture rather than a compressed copy, so the small
-              high-contrast print survives.
-            </p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <h3>Parse</h3>
-            <p>
-              The photo is straightened and cropped, then read <em>as a table</em> —
-              so each item stays attached to its own price instead of being paired
-              by position.
-            </p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <h3>Check</h3>
-            <p>
-              The printed subtotal and total are read off the page and used to audit
-              the parse: the items have to add up. Where they don't, Tabber says so
-              instead of guessing.
-            </p>
-          </div>
-        </li>
         <li>
           <div>
             <h3>Review</h3>
@@ -337,8 +345,8 @@
             <h3>Tip</h3>
             <p>
               Keep the tip the receipt already printed, pick a percentage, type an
-              amount, or leave none. Your usual percentage and whether it's figured
-              pre- or post-tax are remembered from Settings.
+              amount, or leave none. Your usual percentage, and whether it's figured
+              pre- or post-tax, come from Settings.
             </p>
           </div>
         </li>
@@ -346,9 +354,9 @@
           <div>
             <h3>Seat</h3>
             <p>
-              Who's at the table, before anything is assigned. People Tabber already
-              knows are one tap each, a new name is typed once, and the whole table can
-              be said in a breath. Splitting alone is fine too.
+              Who's at the table. People Tabber already knows are one tap each, a
+              new name is typed once, and the whole table can be said in a breath.
+              Tap a seated name to mark their birthday.
             </p>
           </div>
         </li>
@@ -357,8 +365,8 @@
             <h3>Assign</h3>
             <p>
               Type or dictate who had what. Items land under each person as they're
-              recognised — or tap a row to place it, and hold one to place several at
-              once.
+              recognised — or tap a row to place it, and hold one to place several
+              at once.
             </p>
           </div>
         </li>
@@ -367,11 +375,127 @@
             <h3>Share</h3>
             <p>
               Per-person totals with itemised breakdowns, sent through the standard
-              share sheet. Finished tabs are saved to your home screen.
+              share sheet. Finish files the tab on your home screen.
             </p>
           </div>
         </li>
       </ol>
+    </div>
+  </section>
+
+  <!-- ======================= REAL DINNERS ========================= -->
+  <!-- Three things a dinner does that a receipt doesn't say. Each card's
+       visual is drawn from the screen it describes, in that screen's own
+       words: SummaryView's birthday lines, HomeView's DraftCard, and
+       SavedSplitView's Paid tag. The birthday figures follow the page's own
+       example: tax and tip are $34.20 on a $120.00 subtotal, so Sarah's
+       $32.00 salmon carries $9.12, and her $41.12 is split three ways
+       between John, Mike and you. -->
+  <section class="section-hairline">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="micro">For real dinners</span>
+        <h2>The parts a receipt doesn't print.</h2>
+        <p>
+          Somebody's birthday, a bill you'll sort out tomorrow, and the friend who
+          pays you back next week.
+        </p>
+      </div>
+
+      <div class="grid-3 trio moments reveal">
+        <div class="feature moment">
+          <div class="moment-visual" aria-hidden="true">
+            <div class="mini-card">
+              <div class="mini-row">
+                <span class="avatar" style="background:var(--p2)">S</span>
+                <span class="who"><span class="emoji">🎂</span>Sarah<small>1 item · covered by the table</small></span>
+                <span class="money">$0.00</span>
+              </div>
+            </div>
+            <div class="mini-card">
+              <div class="mini-row">
+                <span class="avatar" style="background:var(--p3)">J</span>
+                <span class="who">John</span>
+                <span class="money">$31.70</span>
+              </div>
+              <ul class="person-items">
+                <li><span><span class="emoji">🎂</span>Sarah's birthday <span class="shared">· ÷3</span></span><span class="money">$13.71</span></li>
+              </ul>
+            </div>
+          </div>
+          <span class="micro">Birthdays</span>
+          <h3>The table covers it</h3>
+          <p>
+            Tap their name while seating the table, or just say “it's Sarah's
+            birthday”. Their items stay on their card, and everything they'd owe —
+            tax and tip included — is split evenly across everyone else.
+          </p>
+        </div>
+
+        <div class="feature moment">
+          <div class="moment-visual" aria-hidden="true">
+            <span class="micro">In progress</span>
+            <div class="mini-card is-draft">
+              <div class="mini-row">
+                <span class="who">Lucia's</span>
+                <span class="money">$154.20</span>
+              </div>
+              <div class="mini-row">
+                <span class="step">Step 3 · The table</span>
+                <span class="micro">Yesterday</span>
+              </div>
+            </div>
+            <div class="mini-card is-draft">
+              <div class="mini-row">
+                <span class="who">Taqueria Sol</span>
+                <span class="money">$63.40</span>
+              </div>
+              <div class="mini-row">
+                <span class="step">Step 1 · The receipt</span>
+                <span class="micro">Saturday</span>
+              </div>
+            </div>
+          </div>
+          <span class="micro">Drafts</span>
+          <h3>Finish it later</h3>
+          <p>
+            Every step before the summary has an Exit that saves the tab as a draft.
+            It waits on Home under In progress, reopens on the step you left, and
+            once finished is filed under the day it was started.
+          </p>
+        </div>
+
+        <div class="feature moment">
+          <div class="moment-visual" aria-hidden="true">
+            <span class="micro">Who paid what</span>
+            <div class="mini-card is-list">
+              <div class="mini-row is-paid">
+                <span class="avatar" style="background:var(--p2)">S</span>
+                <span class="who">Sarah</span>
+                <span class="paid-tag">Paid</span>
+                <span class="money">$56.54</span>
+              </div>
+              <div class="mini-row">
+                <span class="avatar" style="background:var(--p3)">J</span>
+                <span class="who">John</span>
+                <span class="money">$28.27</span>
+              </div>
+              <div class="mini-row is-paid">
+                <span class="avatar" style="background:var(--p4)">M</span>
+                <span class="who">Mike</span>
+                <span class="paid-tag">Paid</span>
+                <span class="money">$59.11</span>
+              </div>
+            </div>
+          </div>
+          <span class="micro">Paying back</span>
+          <h3>See who still owes you</h3>
+          <p>
+            On a saved tab, hold someone's name to mark them paid, and hold again to
+            take it off. A paid share dims, so whoever still owes stands out.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -411,11 +535,10 @@
       <div class="callout accent mt-lg reveal">
         <span class="micro">You hold the delete key</span>
         <p>
-          Receipt photos can be kept always, dropped 30 days after the meal, or never
-          stored at all — in which case the receipt is read and immediately discarded.
-          Settings shows exactly what the photos cost on disk and can delete every one
-          of them while leaving your tabs, itemisations, and remembered people intact.
-          One confirmed tap erases everything.
+          Receipt photos can be kept with each tab, dropped 30 days after the meal, or
+          not saved with tabs at all. Settings shows exactly what the photos cost on
+          disk and can delete every one of them while leaving your tabs, itemisations,
+          and remembered people intact. One confirmed tap erases everything.
         </p>
       </div>
 
@@ -501,7 +624,7 @@
         <h2>What you need.</h2>
       </div>
 
-      <div class="grid-3 reveal">
+      <div class="grid-3 trio reveal">
         <div class="feature">
           <span class="micro">Full experience</span>
           <h3>iPhone 15 Pro or newer</h3>

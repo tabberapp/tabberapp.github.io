@@ -69,7 +69,7 @@
         Tabber collects nothing. This page explains, in detail, what that means and
         why the app is able to say it.
       </p>
-      <p class="updated">Effective 30 July 2026 · Applies to Tabber for iOS, version 1.4</p>
+      <p class="updated">Effective 13 October 2026 · Applies to Tabber for iOS, version 1.5</p>
     </div>
   </div>
 
@@ -143,9 +143,10 @@
         the device, and it is removed completely when you delete the app.
       </p>
       <ul>
-        <li><strong>Saved tabs</strong> — the restaurant name, date, line items, amounts, and who owed what</li>
-        <li><strong>Remembered people</strong> — the names, initials, and avatar colours of people you've split bills with or added by hand in Settings, plus an optional Venmo username if you enter one</li>
-        <li><strong>Receipt photos</strong> — a downscaled copy of each receipt image, kept according to the retention setting you choose (see <a href="#delete">section 10</a>)</li>
+        <li><strong>Saved tabs</strong> — the restaurant name, date, line items, amounts, who owed what, whose birthday the table covered, and who you've marked paid</li>
+        <li><strong>Drafts</strong> — a tab you chose to finish later, saved whole: its items, people, assignments, tip, the step you left it on, and its receipt photo. A draft exists only if you tap Save draft, and it is removed when you finish or delete it</li>
+        <li><strong>Remembered people</strong> — the names, initials, and avatar colours of people you've split bills with or added by hand in Settings</li>
+        <li><strong>Receipt photos</strong> — a downscaled copy of each receipt image, kept with a saved tab according to the retention setting you choose, and with a draft until it's finished (see <a href="#delete">section 10</a>)</li>
         <li><strong>Your preferences</strong> — your own first name, default tip percentage, whether tip is calculated pre- or post-tax, entry mode, and photo retention rule, stored in the app's own settings</li>
       </ul>
       <p>
@@ -260,22 +261,26 @@
       </p>
       <ul>
         <li>
-          <strong>Choose how long photos are kept.</strong> In Settings, receipt photos can be
-          kept always, deleted 30 days after the meal, or never stored at all — in which
-          case the receipt is read and discarded immediately.
+          <strong>Choose how long photos are kept.</strong> In Settings, the photos saved with
+          your tabs can be kept always, deleted 30 days after the meal, or never stored at
+          all — in which case the receipt is read and a finished tab keeps no photo. A tab
+          you save as a draft keeps its photo until you finish it, when this setting
+          applies, or delete it.
         </li>
         <li>
-          <strong>Delete all receipt photos.</strong> One confirmed tap removes every stored
-          photo while leaving your tabs, their itemisations, and remembered people intact.
-          Settings also shows exactly how much space the photos are using.
+          <strong>Delete all receipt photos.</strong> One confirmed tap removes every photo
+          saved with a tab while leaving your tabs, their itemisations, and remembered
+          people intact. Settings also shows exactly how much space those photos are using.
+          Drafts keep theirs; delete a draft to remove its photo.
         </li>
         <li>
-          <strong>Delete a single tab.</strong> Swipe it away on the home screen and confirm.
+          <strong>Delete a single tab or draft.</strong> Swipe it away on the home screen and
+          confirm.
         </li>
         <li>
           <strong>Reset everything.</strong> “Reset account” in Settings erases every saved tab,
-          every remembered person, and every preference, then returns the app to its
-          first-run state.
+          every draft, every remembered person, and every preference, then returns the app
+          to its first-run state.
         </li>
         <li>
           <strong>Delete the app.</strong> Removing Tabber from your iPhone removes all of its
@@ -324,7 +329,7 @@
         request through Venmo, and requesting money through Apple Cash in Messages. Both
         would work by handing a prefilled request to that app on your device — the same
         way the share sheet does today — rather than by Tabber contacting any service
-        itself. Neither is implemented in version 1.4.
+        itself. Neither is implemented in version 1.5.
       </p>
 
       <h2 id="contact">14. Contact</h2>

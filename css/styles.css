@@ -199,6 +199,14 @@ h4 {
   letter-spacing: -0.02em;
 }
 
+/* Section headings wrap balanced, so a two-line heading on a phone doesn't
+   leave one word alone under the rest. Not the hero h1: balancing that split
+   "Say / it." across the break. Its phrases are bound with no-break spaces in
+   the markup instead, which leaves "Split it." as the only thing that wraps. */
+h2 {
+  text-wrap: balance;
+}
+
 h1 {
   font-size: clamp(2.1rem, 5.6vw, 3.5rem);
   letter-spacing: -0.033em;
@@ -503,6 +511,13 @@ p {
 .receipt-row.is-sub .money {
   color: var(--secondary-dim);
   font-size: 0.875rem;
+}
+
+/* The receipt card's own heading, "Receipt · 5 items". Its own element rather
+   than a `.receipt-row .name`, whose 15px outranked `.micro` and set the label
+   as large as the items under it. */
+.receipt-label {
+  padding-bottom: 6px;
 }
 
 /* A whole receipt row as a link (404 page). The arrow alone was a 9x19px
@@ -841,10 +856,29 @@ a.receipt-row .money {
 
 /* ---------- Feature grid ---------- */
 
+/* Explicit columns for the same reason as .privacy-claims: auto-fit resolved
+   to two columns between roughly 640px and 830px, which left the third card
+   of a three-card grid (Requirements, Real dinners) alone on a row. Six cards
+   (The math) fill 3 / 2 / 1 evenly; three cards skip the two-column step. */
 .grid-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+}
+
+@media (max-width: 900px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .grid-3.trio {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .feature {
@@ -899,13 +933,18 @@ a.receipt-row .money {
   border-top: 1px solid var(--hairline);
 }
 
+/* "Step 1" rather than "01": the five rows are the five the app numbers in
+   its own header ("Step 4 of 5"), so they are labelled the way it does. */
 .steps li::before {
-  content: counter(step, decimal-leading-zero);
+  content: 'Step ' counter(step);
+  min-width: 4.5em;
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  text-transform: uppercase;
   color: var(--accent);
-  padding-top: 3px;
-  letter-spacing: 0.08em;
+  padding-top: 4px;
+  letter-spacing: 0.14em;
 }
 
 .steps h3 {
@@ -914,10 +953,217 @@ a.receipt-row .money {
   font-size: 1rem;
 }
 
+/* On a phone the label column took a quarter of the row and left the text
+   about 165px; above the heading it costs one short line instead. */
+@media (max-width: 560px) {
+  .steps li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+}
+
+/* The card is the page's full 1016px, which ran these lines past 120
+   characters. Capped near the measure the prose pages use. */
 .steps p {
+  max-width: 68ch;
   color: var(--secondary-dim);
   font-size: 0.9375rem;
   line-height: 1.6;
+}
+
+/* What happens before Step 1: the camera and the parse. Lighter than the
+   numbered card below — an outline, not a fill — because these are things
+   Tabber does while you wait, not screens you step through. */
+.prelude {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+/* Stacked, three outlined cards ran a screen and a half on a phone before the
+   numbered steps began. Joined into one outlined list they read as the one
+   preamble they are. */
+@media (max-width: 760px) {
+  .prelude {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+    border: 1px solid var(--hairline-strong);
+    border-radius: var(--radius-card);
+  }
+  .prelude-card {
+    border: 0;
+    border-radius: 0;
+    padding: 16px 20px 17px;
+  }
+  .prelude-card + .prelude-card {
+    border-top: 1px solid var(--hairline);
+  }
+}
+
+.prelude-card {
+  padding: 18px 20px 20px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-card);
+}
+
+.prelude-card .micro {
+  margin-bottom: 9px;
+  color: var(--accent);
+}
+
+.prelude-card p {
+  color: var(--secondary-dim);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* ---------- Real dinners: feature cards with an app-screen visual ---------- */
+
+/* Each visual is a patch of app screen — the app's own --bg, which sits
+   darker than the card around it — holding the cards that screen draws. */
+.moment-visual {
+  display: grid;
+  align-content: center;
+  gap: 8px;
+  /* The tallest of the three (the birthday pair) at three columns, so the
+     labels and headings under them line up across the row. */
+  min-height: 200px;
+  margin: -6px -6px 20px;
+  padding: 14px;
+  background: var(--bg);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+}
+
+/* `.feature .micro` spaces the card's own label; these sit inside the
+   visual and take none of it. */
+.moment-visual .micro {
+  margin: 0;
+  font-size: 0.625rem;
+  letter-spacing: 0.14em;
+}
+
+.moment-visual > .micro {
+  padding: 0 3px;
+}
+
+.mini-card {
+  padding: 11px 12px;
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+}
+
+/* One column between phone and desktop: each card sets its visual beside
+   its words rather than above them, so the column isn't three tall stacks. */
+@media (max-width: 900px) and (min-width: 601px) {
+  .moment {
+    display: grid;
+    grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr;
+    column-gap: 26px;
+    align-items: start;
+  }
+  .moment-visual {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    margin: -6px 0 -6px -6px;
+  }
+}
+
+/* DraftCard on Home: a dashed edge, so an unfinished tab is never mistaken
+   for a settled one. */
+.mini-card.is-draft {
+  display: grid;
+  gap: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px dashed rgba(255, 255, 255, 0.16);
+}
+
+/* SavedSplitView's "Who paid what": one card, rows split by hairlines. */
+.mini-card.is-list {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.mini-card.is-list .mini-row {
+  padding: 8px 0;
+}
+
+.mini-card.is-list .mini-row + .mini-row {
+  border-top: 1px solid var(--hairline);
+}
+
+.mini-card .person-items {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--dash);
+}
+
+.mini-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mini-row .avatar {
+  width: 26px;
+  height: 26px;
+  font-size: 0.75rem;
+}
+
+.mini-row .who {
+  flex: 1;
+  min-width: 0;
+  color: var(--text-strong);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.mini-row .who small {
+  display: block;
+  margin-top: 1px;
+  color: var(--secondary-dim);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.mini-row .money {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-strong);
+}
+
+.mini-row .step {
+  flex: 1;
+  color: var(--accent);
+  font-size: 0.8125rem;
+}
+
+/* Geist has no emoji, so the fallback glyph sits flush against the name. */
+.emoji {
+  margin-right: 0.4em;
+}
+
+/* Paid: the amount dims and the name stays, as in the app — it is still
+   their share, just not one anybody is waiting on. */
+.mini-row.is-paid .money {
+  color: var(--mono-ink);
+}
+
+.paid-tag {
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: rgba(63, 191, 127, 0.12);
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 /* ---------- Privacy band ---------- */
